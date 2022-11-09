@@ -1,11 +1,14 @@
 package base;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 import config.BaseConfig;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import listeners.DriverEventListener;
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -18,18 +21,18 @@ import org.openqa.selenium.support.ui.*;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
+import org.testng.annotations.Optional;
 import reporting.ExtentManager;
 import reporting.ExtentTestManager;
 import utils.Database;
 import utils.ExcelData;
 
 import java.io.File;
+import java.io.IOException;
 import java.lang.reflect.Method;
+import java.nio.charset.StandardCharsets;
 import java.time.Duration;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.function.Function;
 
 public class BasePage {
@@ -350,5 +353,20 @@ public class BasePage {
         return calendar.getTime();
     }
     // endregion
+
+    // json reader method
+    public static List<HashMap<String,String>> getJasonDataToMap(String filePath) throws IOException {
+
+        //read json to string
+        String jsonContent =  FileUtils.readFileToString(new File(filePath),
+                StandardCharsets.UTF_8);
+
+        //convert string to hashmap
+        ObjectMapper mapper = new ObjectMapper();
+        List<HashMap<String,String>> data = mapper.readValue(jsonContent, new TypeReference<List<HashMap<String,String>>>(){});
+
+        return data;
+
+    }
 
 }
