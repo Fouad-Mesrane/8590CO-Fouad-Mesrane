@@ -98,7 +98,7 @@ public class BasePage {
     @AfterMethod
     public void cleanUp(@Optional("true") String driverConfigEnabled) {
         if (Boolean.parseBoolean(driverConfigEnabled)) {
-            driver.close();
+            //driver.close();
             driver.quit();
         }
     }
@@ -354,6 +354,8 @@ public class BasePage {
     }
     // endregion
 
+
+
     // json reader method
     public static List<HashMap<String,String>> getJasonDataToMap(String filePath) throws IOException {
 
@@ -367,6 +369,8 @@ public class BasePage {
 
         return data;
 
+
     }
+
 
 }
