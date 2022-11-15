@@ -11,6 +11,9 @@
 
     <test name="tests">
         <classes>
+            <class name="test.AuthenticationTest"/>
+            <class name="test.RegistrationTest"/>
+            <class name="test.LogoutTest"/>
             <class name="test.NewAccTest"/>
         </classes>
     </test>
