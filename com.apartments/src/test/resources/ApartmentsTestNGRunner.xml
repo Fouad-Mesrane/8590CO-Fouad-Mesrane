@@ -12,6 +12,9 @@
     <test name="tests">
         <classes>
             <class name="tests.AuthenticationTest"/>
+            <class name="tests.SearchBarTest"/>
+            <class name="tests.SignupTest"/>
+            <class name="tests.AddPropertyTest"/>
         </classes>
     </test>
 
