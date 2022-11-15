@@ -14,7 +14,7 @@ public class LogoutTest extends BasePage {
     public void logoutValidationTest(){
         HomePage homePage = new HomePage();
         LoginPage loginPage = homePage.toLoginPage();
-        DashboardPage dashboard = loginPage.authentication(TestDataReader.readTestData().getProperty("email"),TestDataReader.readTestData().getProperty("password"));
+        DashboardPage dashboard = loginPage.authentication(TestDataReader.getTestData().getProperty("email"),TestDataReader.getTestData().getProperty("password"));
         dashboard.logout();
 
     }

@@ -14,8 +14,8 @@ public class CreateEventTest extends BasePage {
     public void validateEventCreation()  {
         HomePage homePage = new HomePage();
         LoginPage login = homePage.toLoginPage();
-        DashboardPage dashboard = login.authentication(TestDataReader.readTestData().getProperty("email"), TestDataReader.readTestData().getProperty("password"));
-        dashboard.createEvent(TestDataReader.readTestData().getProperty("title"));
-        Assert.assertEquals(dashboard.validateEventCreated(),TestDataReader.readTestData().getProperty("title"));
+        DashboardPage dashboard = login.authentication(TestDataReader.getTestData().getProperty("email"), TestDataReader.getTestData().getProperty("password"));
+        dashboard.createEvent(TestDataReader.getTestData().getProperty("title"));
+        Assert.assertEquals(dashboard.validateEventCreated(),TestDataReader.getTestData().getProperty("title"));
     }
 }

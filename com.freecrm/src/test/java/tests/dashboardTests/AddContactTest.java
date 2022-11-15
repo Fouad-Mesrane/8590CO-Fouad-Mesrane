@@ -15,7 +15,7 @@ public class AddContactTest extends BasePage {
     public void validateAddContact() {
         HomePage homePage = new HomePage();
         LoginPage login = homePage.toLoginPage();
-        DashboardPage dashboard = login.authentication(TestDataReader.readTestData().getProperty("email"), TestDataReader.readTestData().getProperty("password"));
+        DashboardPage dashboard = login.authentication(TestDataReader.getTestData().getProperty("email"), TestDataReader.getTestData().getProperty("password"));
         dashboard.addContact();
 
         Assert.assertTrue(dashboard.validateContactAdded());

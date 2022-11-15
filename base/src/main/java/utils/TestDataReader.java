@@ -14,7 +14,7 @@ public class TestDataReader {
 
 
 
-    public static Properties readTestData(){
+    public static Properties getTestData(){
         try {
             properties = loadProperties();
         } catch (Exception e){
