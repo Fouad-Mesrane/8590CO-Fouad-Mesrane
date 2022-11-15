@@ -226,6 +226,9 @@ public class BasePage {
         }
         return true;
     }
+    public void waitForEleToBeVisible(WebElement element){
+        webDriverWait.until(ExpectedConditions.visibilityOf(element));
+    }
 
     public void switchToParentFrame() {
         driver.switchTo().defaultContent();

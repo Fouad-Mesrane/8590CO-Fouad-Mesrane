@@ -15,7 +15,7 @@ public class DeleteContactValidationTest extends BasePage {
     public void validateDeleteContact() throws InterruptedException {
         HomePage homePage = new HomePage();
         LoginPage login = homePage.toLoginPage();
-        DashboardPage dashboard = login.authentication(TestDataReader.readTestData().getProperty("email"), TestDataReader.readTestData().getProperty("password"));
+        DashboardPage dashboard = login.authentication(TestDataReader.getTestData().getProperty("email"), TestDataReader.getTestData().getProperty("password"));
 
 
         boolean match = dashboard.deleteContactValidation();
