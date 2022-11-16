@@ -95,7 +95,7 @@ public class BasePage {
     }
 
     @Parameters({"driverConfigEnabled"})
-    @AfterMethod
+    @AfterMethod(enabled = false)
     public void cleanUp(@Optional("true") String driverConfigEnabled) {
         if (Boolean.parseBoolean(driverConfigEnabled)) {
             //driver.close();
@@ -226,6 +226,10 @@ public class BasePage {
         }
         return true;
     }
+    public void waitForEleToBeVisible(WebElement element){
+        webDriverWait.until(ExpectedConditions.visibilityOf(element));
+    }
+
     public void waitForEleToBeVisible(WebElement element){
         webDriverWait.until(ExpectedConditions.visibilityOf(element));
     }
