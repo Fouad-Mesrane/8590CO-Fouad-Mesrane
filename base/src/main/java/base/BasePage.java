@@ -187,7 +187,7 @@ public class BasePage {
         return text;
     }
 
-    public void clickOnElement(WebElement element) {
+    public static void clickOnElement(WebElement element) {
         webDriverWait.until(ExpectedConditions.elementToBeClickable(element));
         element.click();
     }
@@ -362,21 +362,28 @@ public class BasePage {
     // endregion
 
 
-
     // json reader method
-    public static List<HashMap<String,String>> getJasonDataToMap(String filePath) throws IOException {
+    public static List<HashMap<String, String>> getJasonDataToMap(String filePath) throws IOException {
 
         //read json to string
-        String jsonContent =  FileUtils.readFileToString(new File(filePath),
+        String jsonContent = FileUtils.readFileToString(new File(filePath),
                 StandardCharsets.UTF_8);
 
         //convert string to hashmap
         ObjectMapper mapper = new ObjectMapper();
-        List<HashMap<String,String>> data = mapper.readValue(jsonContent, new TypeReference<List<HashMap<String,String>>>(){});
+        List<HashMap<String, String>> data = mapper.readValue(jsonContent, new TypeReference<List<HashMap<String, String>>>() {
+        });
 
         return data;
 
 
+    }
+
+    public void waitForElementsToBeVisible(List<WebElement> elements) {
+        webDriverWait.until(ExpectedConditions.visibilityOfAllElements(elements));
+    }
+    public void waitForEleToBeVisible(WebElement elements) {
+        webDriverWait.until(ExpectedConditions.visibilityOf(elements));
     }
 
 
