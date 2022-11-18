@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class TestDataReader {
+
+
     public static Properties properties;
     private static final File propertiesFile = new File(System.getProperty("user.dir") + File.separator + "src"
             + File.separator + "main" + File.separator + "resources" + File.separator + "data" + File.separator
@@ -13,7 +15,7 @@ public class TestDataReader {
 
 
 
-    public static Properties readTestData(){
+    public static Properties getTestData(){
         try {
             properties = loadProperties();
         } catch (Exception e){

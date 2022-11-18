@@ -9,4 +9,17 @@
     <parameter name="browser" value="chrome"/>
     <parameter name="url" value="https://freecrm.com"/>
 
+    <test name="test">
+        <classes>
+            <class name="tests.homepageTests.NavigateToLoginPageTest"/>
+            <class name="tests.loginTests.AuthenticationTest"/>
+            <class name="tests.loginTests.ErrorLoginValidationTest"/>
+
+            <class name="tests.dashboardTests.AddContactTest"/>
+            <class name="tests.dashboardTests.CreateEventTest"/>
+            <class name="tests.dashboardTests.DeleteContactValidationTest"/>
+            <class name="tests.dashboardTests.LogoutTest"/>
+        </classes>
+    </test>
+
 </suite>
