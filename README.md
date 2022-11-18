@@ -23,29 +23,29 @@ git remote -v
 ```
 * Make sure to push the framework to your remote repo so that you have the base framework available
 * Make sure to do this next step only after you've pushed the framework to your remote
-    * Inside each module except for `base`, under `src/main/java` and `src/main/test` you will find files titled 
+    * Inside each module except for `base`, under `src/main/java` and `src/main/tests` you will find files titled 
     `delete_this_file.txt` Only delete these files once you have created at least 1 class under these directories. 
     If you delete these files and there is nothing else in the directory, when you push to your remote, Git will exclude 
     the directory entirely. 
 * It's recommended to create a new branch for each domain you work on, and then merge that branch into your main once
     you have completed writing tests for that application.
-* You should be pushing **STABLE CODE ONLY** & you should be pushing as soon as you can confirm a test case is passing 
-consistently (run test 3-4x to confirm)
+* You should be pushing **STABLE CODE ONLY** & you should be pushing as soon as you can confirm a tests case is passing 
+consistently (run tests 3-4x to confirm)
   - Best practice on the job, is to push your code every time you solve a problem, make a change, or finish a task
   - ***IMPORTANT: DO NOT PUSH ANY CODE CONTAINING ANY ERRORS, OR ANY INCOMPLETE CODE***
 #
 ### TO DO:
-* You are responsible for developing 150 test cases
+* You are responsible for developing 150 tests cases
   * 90% of your tests should be data-driven
     * Either data-drive your tests or access data to assert against, from an external source 
 * You must work with at least 10 different web applications (15 tests/application)
   * You are welcome to automate all the given applications, in order to reduce the number of tests required per 
   application
-* You must test in all 8 available domains (see below for domain list)
-* You must develop at least 10 high-value test cases for automationpractice.com
+* You must tests in all 8 available domains (see below for domain list)
+* You must develop at least 10 high-value tests cases for automationpractice.com
     * Think about common production scenarios, such as registering an account, searching for items,
     adding items to cart, purchasing items, adding shipping address, viewing order history, etc
-* You must develop at least 10 high value test cases for freecrm.com
+* You must develop at least 10 high value tests cases for freecrm.com
     * Look at all the functionality this application allows you to do - Log a call, add a new contact, add new companies, 
     scheduling calendar events, etc  
 #
@@ -108,7 +108,7 @@ consistently (run test 3-4x to confirm)
 - When running tests from a Test Class, you need to make sure the method in the BasePage class, 
 named `driverSetup (@BeforeMethod)`, has an optional parameter `URL`, with the value of the website you are testing. 
     - If running tests from the xml file, then the `URL` parameter should point to the application homepage
-- If you would like your test to automatically retry upon failure, annotate the test method with `@RetryCount(n)` 
+- If you would like your tests to automatically retry upon failure, annotate the tests method with `@RetryCount(n)` 
     where `n` equals the number of times to retry
     - If you are running from the Test Class and would like your tests to retry on failure, then you need to add the 
     following attribute & value to the `@Test` annotation: 
@@ -123,13 +123,13 @@ named `driverSetup (@BeforeMethod)`, has an optional parameter `URL`, with the v
              <listener class-name="listeners.AnnotationTransformer"/>
       </listeners>
       ```
-- When you run the Maven Clean lifecycle, you will also be cleaning out all existing test reports
+- When you run the Maven Clean lifecycle, you will also be cleaning out all existing tests reports
     - In order to keep all your reports, you must go to the **ROOT** POM.xml and comment out lines 112-117 
     (The entire `<filesets>` tag)
 - If you are copying and pasting code frequently, it probably means you should turn that workflow/action into a method
 - Your goal should be to write code that is highly portable and can be used in a wide variety of situations  
 - Try to come up with helper methods that can help with assertions (i.e. - compare list of expected results from your 
-    excel sheet against a list of WebElement text that was retrieved during test execution, and return true if both 
+    excel sheet against a list of WebElement text that was retrieved during tests execution, and return true if both 
     lists are equal)
 - At the end of the bootcamp, you should be able to confidently run your entire project (all modules), by executing `mvn clean install -U`
   - You must have the path to the Maven executable in your `PATH` environment variable, in order to run `mvn` commands in your terminal/cmd

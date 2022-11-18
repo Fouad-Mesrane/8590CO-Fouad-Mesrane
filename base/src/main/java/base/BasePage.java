@@ -98,7 +98,9 @@ public class BasePage {
     @AfterMethod(enabled = false)
     public void cleanUp(@Optional("true") String driverConfigEnabled) {
         if (Boolean.parseBoolean(driverConfigEnabled)) {
+
             //driver.close();
+
             driver.quit();
         }
     }
@@ -187,7 +189,9 @@ public class BasePage {
         return text;
     }
 
+
     public static void clickOnElement(WebElement element) {
+
         webDriverWait.until(ExpectedConditions.elementToBeClickable(element));
         element.click();
     }
@@ -313,7 +317,7 @@ public class BasePage {
 
         webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(10));
         fluentWait = new FluentWait<>(driver)
-                .withTimeout(Duration.ofSeconds(20))
+                .withTimeout(Duration.ofSeconds(10))
                 .pollingEvery(Duration.ofMillis(500))
                 .ignoring(Exception.class);
 
