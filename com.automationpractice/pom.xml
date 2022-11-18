@@ -43,7 +43,7 @@
                     <testFailureIgnore>true</testFailureIgnore>
 
                     <suiteXmlFiles>
-                        <suiteXmlFile>target/test-classes/AutomationPracticeTestNGRunner.xml</suiteXmlFile>
+                        <suiteXmlFile>target/tests-classes/AutomationPracticeTestNGRunner.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>

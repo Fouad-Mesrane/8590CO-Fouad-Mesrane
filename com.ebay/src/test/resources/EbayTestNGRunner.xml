@@ -1,6 +1,6 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 
-<suite name="Ebay" verbose="1" >
+<suite name="Ebay" verbose="1">
 
     <listeners>
         <listener class-name="listeners.AnnotationTransformer"/>
@@ -8,5 +8,17 @@
 
     <parameter name="browser" value="chrome"/>
     <parameter name="url" value="http://ebay.com"/>
+
+    <test name="Smoke">
+        <classes>
+            <class name="tests.SearchBarTest"/>
+            <class name="tests.SelectProductTest"/>
+            <class name="tests.AddProductToCartTest"/>
+            <class name="tests.ChangeLanguageTest"/>
+            <class name="tests.CarouselTest"/>
+
+
+        </classes>
+    </test>
 
 </suite>
