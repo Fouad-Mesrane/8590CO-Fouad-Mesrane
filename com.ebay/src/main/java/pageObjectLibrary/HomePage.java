@@ -39,8 +39,8 @@ public class HomePage extends BasePage {
     WebElement previousBannerBtn;
 
 
-    public SearchPageResults doSearch() {
-        sendKeysToElement(searchBarInput, TestDataReader.readTestData().getProperty("search.term"));
+    public SearchPageResults doSearch(String searchTerm) {
+        sendKeysToElement(searchBarInput, searchTerm);
         clickOnElement(searchBtn);
         return new SearchPageResults();
     }
@@ -51,7 +51,6 @@ public class HomePage extends BasePage {
 
         scrollDown();
         hoverOverElement(mainLanguage);
-
         clickOnElement(ele);
 
 
