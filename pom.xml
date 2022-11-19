@@ -24,6 +24,7 @@
         <module>com.streeteasy</module>
         <module>com.ebay</module>
         <module>com.automationpractice</module>
+        <module>com.parabank</module>
     </modules>
 
     <properties>
