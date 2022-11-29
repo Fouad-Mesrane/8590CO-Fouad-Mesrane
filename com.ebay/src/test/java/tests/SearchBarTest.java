@@ -12,7 +12,7 @@ public class SearchBarTest extends BasePage {
     @Test
     public void validateWorkingOfSearchFunctionality() {
         HomePage homePage = new HomePage();
-        SearchPageResults results = homePage.doSearch(TestDataReader.readTestData().getProperty("search.term"));
+        SearchPageResults results = homePage.doSearch(TestDataReader.getTestData().getProperty("search.term"));
         Assert.assertTrue(results.validateSearchResults());
     }
 }

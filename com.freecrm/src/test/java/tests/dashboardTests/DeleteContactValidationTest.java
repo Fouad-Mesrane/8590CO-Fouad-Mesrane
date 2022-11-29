@@ -6,16 +6,19 @@ import org.testng.annotations.Test;
 import pageObjectModel.DashboardPage;
 import pageObjectModel.HomePage;
 import pageObjectModel.LoginPage;
+import tests.loginTests.AuthenticationTest;
 import utils.TestDataReader;
+
+import java.util.HashMap;
 
 public class DeleteContactValidationTest extends BasePage {
 
 
-    @Test
-    public void validateDeleteContact() throws InterruptedException {
+    @Test(dataProvider = "getData", dataProviderClass = AuthenticationTest.class)
+    public void validateDeleteContact(HashMap<String,String> input) throws InterruptedException {
         HomePage homePage = new HomePage();
         LoginPage login = homePage.toLoginPage();
-        DashboardPage dashboard = login.authentication(TestDataReader.getTestData().getProperty("email"), TestDataReader.getTestData().getProperty("password"));
+        DashboardPage dashboard = login.authentication(input.get("email"), input.get("password"));
 
 
         boolean match = dashboard.deleteContactValidation();

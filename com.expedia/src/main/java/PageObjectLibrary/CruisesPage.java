@@ -16,7 +16,7 @@ public class CruisesPage extends BasePage {
     WebElement selectDestination;
 
     public SearchCruisesResults searchCruises(){
-        selectFromDropdownByValue(selectDestination, TestDataReader.readTestData().getProperty("destination"));
+        selectFromDropdownByValue(selectDestination, TestDataReader.getTestData().getProperty("destination"));
         clickOnElement(HomePage.checkInDate);
         waitForEleToBeVisible(HomePage.monthYear);
         //departure date

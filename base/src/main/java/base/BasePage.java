@@ -95,7 +95,7 @@ public class BasePage {
     }
 
     @Parameters({"driverConfigEnabled"})
-    @AfterMethod(enabled = false)
+    @AfterMethod
     public void cleanUp(@Optional("true") String driverConfigEnabled) {
         if (Boolean.parseBoolean(driverConfigEnabled)) {
 
@@ -234,9 +234,7 @@ public class BasePage {
         webDriverWait.until(ExpectedConditions.visibilityOf(element));
     }
 
-    public void waitForEleToBeVisible(WebElement element){
-        webDriverWait.until(ExpectedConditions.visibilityOf(element));
-    }
+
 
     public void switchToParentFrame() {
         driver.switchTo().defaultContent();
@@ -386,9 +384,7 @@ public class BasePage {
     public void waitForElementsToBeVisible(List<WebElement> elements) {
         webDriverWait.until(ExpectedConditions.visibilityOfAllElements(elements));
     }
-    public void waitForEleToBeVisible(WebElement elements) {
-        webDriverWait.until(ExpectedConditions.visibilityOf(elements));
-    }
+
 
 
 }

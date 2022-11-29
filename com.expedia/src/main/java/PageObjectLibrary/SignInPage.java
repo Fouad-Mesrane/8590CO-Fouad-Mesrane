@@ -34,10 +34,10 @@ public class SignInPage extends BasePage {
         return new LandingPage();
     }
 
-    public void doErrorSignIn()  {
+    public void doErrorSignIn(String email, String password)  {
 
-        sendKeysToElement(emailField, GenerateData.email());
-        sendKeysToElement(passwordField,GenerateData.password());
+        sendKeysToElement(emailField, email);
+        sendKeysToElement(passwordField,password);
         waitForEleToBeVisible(signinBtn);
         clickOnElement(signinBtn);
 

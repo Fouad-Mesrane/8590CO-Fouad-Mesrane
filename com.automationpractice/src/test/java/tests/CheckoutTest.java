@@ -9,17 +9,18 @@ import pageObject.HomePage;
 import pageObject.OrderReceiptPage;
 import pageObject.SearchResultsPage;
 import utils.ExcelData;
+import utils.TestDataReader;
 
 import java.io.File;
 
 public class CheckoutTest extends BasePage {
 
-    @Test(dataProvider = "getCredentialsData")
+    @Test(dataProvider = "getCredentialsData", dataProviderClass = AuthenticationTest.class)
     public void submitOrder(String email, String password){
         HomePage homePage = new HomePage();
-        homePage.authentication(email,password );
-        SearchResultsPage searchResultsPage = homePage.search("dress");
-        CartPage cartPage = searchResultsPage.addToCart("Printed Chiffon Dress");
+        homePage.authentication(email,password);
+        SearchResultsPage searchResultsPage = homePage.search(TestDataReader.properties.getProperty("search"));
+        CartPage cartPage = searchResultsPage.addToCart(TestDataReader.getTestData().getProperty("product"));
         OrderReceiptPage orderReceiptPage = cartPage.checkout();
         boolean match = orderReceiptPage.validateOrderConfirmation();
 
@@ -28,11 +29,5 @@ public class CheckoutTest extends BasePage {
 
     }
 
-    @DataProvider
-    public  Object[][] getCredentialsData(){
-        String filePath = System.getProperty("user.dir") + File.separator + "data" + File.separator + "automation_practice_credentials.xlsx";
-        ExcelData dataFromExcel = new ExcelData(filePath);
-        Object[][] data = dataFromExcel.readStringArrays("LoginCredentials");
-        return data;
-    }
+
 }

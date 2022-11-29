@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 import pageObjectLibrary.HomePage;
 import pageObjectLibrary.LandingPage;
 import pageObjectLibrary.SignupPage;
+import utils.GenerateData;
 
 public class SignupTest extends BasePage {
 
@@ -13,7 +14,8 @@ public class SignupTest extends BasePage {
     public void validateSignup() throws InterruptedException {
         HomePage homePage = new HomePage();
         SignupPage signup = homePage.navigateToSignUp();
-        LandingPage landingPage = signup.createAcc();
-        Assert.assertTrue(landingPage.isVisibleBtn());
+        signup.fillFirstNameLastNameEmail(GenerateData.firstName(),GenerateData.lastName(),GenerateData.email());
+        LandingPage lp = signup.fillPasswordForm(GenerateData.password());
+        Assert.assertTrue(lp.isVisibleBtn());
     }
 }

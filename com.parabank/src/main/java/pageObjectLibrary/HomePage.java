@@ -36,24 +36,25 @@ public class HomePage extends BasePage {
         return new RegistrationPage();
     }
 
-    public LandingPage authentication() throws SQLException, IOException {
-        String query_username = "SELECT Username FROM selenium_bootcamp_data.com_parabank_credentials";
-        String query_password = "SELECT AccPassword FROM selenium_bootcamp_data.com_parabank_credentials";
+    public LandingPage authentication(String username, String password) throws SQLException, IOException {
+        // i tried db it was working
+       /* String query_username = "SELECT Username FROM selenium_bootcamp_data.com_parabank_credentials";
+        String query_password = "SELECT AccPassword FROM selenium_bootcamp_data.com_parabank_credentials";*/
 
-        sendKeysToElement(usernameField, db.executeQueryReadOne(query_username).toString());
-        sendKeysToElement(passwordField, db.executeQueryReadOne(query_password).toString());
+        sendKeysToElement(usernameField, username);
+        sendKeysToElement(passwordField, password);
         clickOnElement(loginBtn);
         // i used autoit to handle authentication alert
-        String executablePath = System.getProperty("user.dir") + "\\src\\main\\resources\\data\\auth.exe";
+        String executablePath = System.getProperty("user.dir") + "\\src\\main\\resources\\data\\credentials.exe";
         Runtime.getRuntime().exec(executablePath);
 
         return new LandingPage();
 
     }
 
-    public LandingPage errorLogin() {
-        sendKeysToElement(usernameField, GenerateData.firstName());
-        sendKeysToElement(passwordField, GenerateData.firstName());
+    public LandingPage errorLogin(String email, String password) {
+        sendKeysToElement(usernameField, email);
+        sendKeysToElement(passwordField, password);
         clickOnElement(loginBtn);
         return new LandingPage();
     }

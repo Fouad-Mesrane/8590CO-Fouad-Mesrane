@@ -6,6 +6,7 @@ import PageObjectLibrary.SignInPage;
 import base.BasePage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import utils.GenerateData;
 
 import java.sql.SQLException;
 
@@ -23,7 +24,7 @@ public class SignInTest extends BasePage {
     public void validateErrorLogin(){
         HomePage homePage = new HomePage();
         SignInPage signIn = homePage.toSignInPage();
-        signIn.doErrorSignIn();
+        signIn.doErrorSignIn(GenerateData.email(),GenerateData.password());
         Assert.assertTrue(signIn.validateErrorLogin());
     }
 }

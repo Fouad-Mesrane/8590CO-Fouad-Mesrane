@@ -38,11 +38,11 @@ public class FlightsPage extends BasePage {
 
     public SearchFlightsResults searchFlights() throws InterruptedException {
         clickOnElement(leavingFromBtn);
-        sendKeysToElement(airportDepartureInput, TestDataReader.readTestData().getProperty("from"));
+        sendKeysToElement(airportDepartureInput, TestDataReader.getTestData().getProperty("from"));
         Thread.sleep(1000);
         clickOnElement(selectDepartureAirport);
         clickOnElement(gointToBtn);
-        sendKeysToElement(airportDestinationInput,TestDataReader.readTestData().getProperty("to"));
+        sendKeysToElement(airportDestinationInput,TestDataReader.getTestData().getProperty("to"));
         Thread.sleep(1000);
         jsClickOnElement(selectDestinationAirport);
         clickOnElement(HomePage.checkInDate);

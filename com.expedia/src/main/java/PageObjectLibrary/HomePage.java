@@ -103,7 +103,7 @@ public class HomePage extends BasePage {
 
 
     public SearchHotelsResults searchHotels() throws InterruptedException {
-        String city = TestDataReader.readTestData().getProperty("city");
+        String city = TestDataReader.getTestData().getProperty("city");
         clickOnElement(destinationBtn);
         sendKeysToElement(destinationInput, city);
         waitForElementsToBeVisible(destinationsDropDown);
@@ -159,7 +159,7 @@ public class HomePage extends BasePage {
     // change language method
     public void changeLanguage() {
         clickOnElement(languageBtn);
-        selectFromDropdownByIndex(languageSelector, Integer.parseInt(TestDataReader.readTestData().getProperty("espagnol")));
+        selectFromDropdownByIndex(languageSelector, Integer.parseInt(TestDataReader.getTestData().getProperty("espagnol")));
         clickOnElement(saveBtn);
     }
 

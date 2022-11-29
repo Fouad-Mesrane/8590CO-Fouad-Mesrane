@@ -12,6 +12,6 @@ public class ChangeLanguageTest extends BasePage {
     public void validateLanguageChange(){
         HomePage homePage = new HomePage();
         homePage.changeLanguage();
-        Assert.assertEquals(homePage.validateLanguageChanged(), TestDataReader.readTestData().getProperty("expected"));
+        Assert.assertEquals(homePage.validateLanguageChanged(), TestDataReader.getTestData().getProperty("expected"));
     }
 }

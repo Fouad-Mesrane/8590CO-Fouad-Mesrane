@@ -8,6 +8,7 @@ import pageObject.CartPage;
 import pageObject.HomePage;
 import pageObject.SearchResultsPage;
 import utils.GenerateData;
+import utils.TestDataReader;
 
 public class ErrorValidationTest extends BasePage {
 
@@ -28,12 +29,12 @@ public class ErrorValidationTest extends BasePage {
     }
 
 
-    @Test
-    public void productErrorValidation() {
+    @Test(dataProvider = "getCredentialsData", dataProviderClass = AuthenticationTest.class)
+    public void productErrorValidation(String email, String password) {
         HomePage homePage = new HomePage();
-        homePage.authentication(BaseConfig.properties.getProperty("email"),BaseConfig.properties.getProperty("password"));
-        SearchResultsPage searchResultsPage = homePage.search("dress");
-        CartPage cartPage = searchResultsPage.addToCart("Printed Chiffon Dress");
+        homePage.authentication(email,password);
+        SearchResultsPage searchResultsPage = homePage.search(TestDataReader.properties.getProperty("search"));
+        CartPage cartPage = searchResultsPage.addToCart(TestDataReader.properties.getProperty("product"));
         boolean match =  cartPage.verifyProductDisplay("Printed Chiffon Dress");
         Assert.assertFalse(match);
 

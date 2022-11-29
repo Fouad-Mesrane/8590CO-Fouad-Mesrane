@@ -10,16 +10,16 @@
     <parameter name="url" value="http://expedia.com"/>
     <test name="Smoke">
         <classes>
-            <class name="tests.SignupTest"/>
-            <class name="tests.SignInTest">
+           <!-- <class name="tests.SignupTest"/>-->
+           <!-- <class name="tests.SignInTest">
                 <methods>
                     <include name="validateSignIn"/>
                     <include name="validateErrorLogin"/>
                 </methods>
-            </class>
+            </class>-->
             <class name="tests.SearchHotelsTest"/>
-            <class name="tests.SearchFlightsTest"/>
-            <class name="tests.SearchCruisesTest"/>
+            <!--<class name="tests.SearchFlightsTest"/>-->
+           <!-- <class name="tests.SearchCruisesTest"/>-->
         </classes>
     </test>
 

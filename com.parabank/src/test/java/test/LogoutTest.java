@@ -12,11 +12,11 @@ import java.sql.SQLException;
 
 public class LogoutTest extends BasePage {
 
-    @Test
-    public void validateLogout() throws SQLException, IOException, InterruptedException {
+    @Test(dataProvider = "credentials", dataProviderClass = AuthenticationTest.class)
+    public void validateLogout(String username, String password) throws SQLException, IOException, InterruptedException {
         HomePage homePage = new HomePage();
         // used credentials from database
-        LandingPage landingPage = homePage.authentication();
+        LandingPage landingPage = homePage.authentication(username,password);
         landingPage.logout();
         Assert.assertTrue(homePage.validateLogout());
     }

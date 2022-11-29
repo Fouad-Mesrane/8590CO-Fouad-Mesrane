@@ -12,12 +12,12 @@
     <test name="test">
         <classes>
             <class name="tests.RegistrationTest"/>
-            <class name="tests.AuthenticationTest"/>
+           <!-- <class name="tests.AuthenticationTest"/>
             <class name="tests.SearchBarTest"/>
             <class name="tests.AddProductToCartTest"/>
             <class name="tests.CheckoutTest"/>
             <class name="tests.SubmitOrderTest"/>
-            <class name="tests.ErrorValidationTest"/>
+            <class name="tests.ErrorValidationTest"/>-->
         </classes>
     </test>
 

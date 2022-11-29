@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 import pageObjectLibrary.HomePage;
 import pageObjectLibrary.LandingPage;
 import pageObjectLibrary.RegistrationPage;
+import utils.TestDataReader;
 
 public class RegistrationTest extends BasePage {
 
@@ -14,6 +15,6 @@ public class RegistrationTest extends BasePage {
         HomePage homePage = new HomePage();
         RegistrationPage registration = homePage.navigateToRegistrationPage();
         LandingPage landingPage = registration.fillRegistrationForm();
-        Assert.assertTrue(landingPage.validateLoginAndRegistration());
+        Assert.assertEquals(landingPage.validateRegistration(), TestDataReader.getTestData().getProperty("expected.accountCreationMsg"));
     }
 }

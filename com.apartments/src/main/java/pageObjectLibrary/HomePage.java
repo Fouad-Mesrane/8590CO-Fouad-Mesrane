@@ -48,8 +48,8 @@ public class HomePage extends BasePage {
         return new LoginContainer();
     }
 
-    public SearchResultsPage doSearch() throws InterruptedException {
-        clearSendKeysToElement(searchInput, TestDataReader.getTestData().getProperty("city"));
+    public SearchResultsPage doSearch(String searchWord) throws InterruptedException {
+        clearSendKeysToElement(searchInput, searchWord);
         Thread.sleep(500);
         jsClickOnElement(searchBtn);
         return  new SearchResultsPage();

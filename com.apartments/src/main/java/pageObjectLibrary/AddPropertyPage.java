@@ -16,7 +16,7 @@ public class AddPropertyPage extends BasePage {
     @FindBy(id = "iframeAddProperty")
     WebElement addPropertyFrame;
     @FindBy(xpath = "//input[@id='cpid1-address']")
-    WebElement address;
+    WebElement addressField;
     @FindBy(css = "#mat-autocomplete-0")
     WebElement autoCompleteAddressContainer;
     @FindBy(css = "#mat-autocomplete-0 > mat-option")
@@ -30,10 +30,10 @@ public class AddPropertyPage extends BasePage {
     @FindBy(css = "#cpid1-propertyType-panel > mat-option")
     List<WebElement> propertyType;
 
-    public void addProperty() {
+    public void addProperty(String address) {
         waitForEleToBeVisible(addPropertyFrame);
         switchToFrameByElement(addPropertyFrame);
-        sendKeysToElement(address,address());
+        sendKeysToElement(addressField,address);
         waitForEleToBeVisible(autoCompleteAddressContainer);
         clickOnElement(autoCompleteOptions.get(0));
         clickOnElement(selectBtn);
@@ -41,11 +41,5 @@ public class AddPropertyPage extends BasePage {
         clickOnElement(propertyType.get(1));
     }
 
-    private String address() {
-        // it does not accept random address so i used a valid one
-        //GenerateData.streetAddress() + ", " + GenerateData.city() + ", " + GenerateData.state();
-        String address = TestDataReader.getTestData().getProperty("streetAddress") + ", " + TestDataReader.getTestData().getProperty("city")
-                + ", " + TestDataReader.getTestData().getProperty("state");
-        return address;
-    }
+
 }

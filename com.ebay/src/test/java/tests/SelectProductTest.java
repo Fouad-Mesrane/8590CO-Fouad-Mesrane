@@ -13,7 +13,7 @@ public class SelectProductTest extends BasePage {
     @Test
     public void validateSelectedProduct(){
         HomePage homePage = new HomePage();
-        SearchPageResults results = homePage.doSearch(TestDataReader.readTestData().getProperty("search.term"));
+        SearchPageResults results = homePage.doSearch(TestDataReader.getTestData().getProperty("search.term"));
         SelectedProductPage selectedProduct = results.selectProduct();
         Assert.assertTrue(selectedProduct.validateProductSelection());
     }

@@ -28,7 +28,8 @@ public class AuthenticationTest extends BasePage {
 
     @DataProvider(name = "credentials")
     public Object[][] getCredentialsData(){
-        String filePath = System.getProperty("user.dir") + File.separator + "data" + File.separator + "automation_practice_credentials.xlsx";
+        String filePath = System.getProperty("user.dir") + File.separator+ "src" + File.separator+ "main" +File.separator + "resources" +
+                File.separator + "data" + File.separator + "automation_practice_credentials.xlsx";
         ExcelData dataFromExcel = new ExcelData(filePath);
         Object[][] data = dataFromExcel.readStringArrays("LoginCredentials");
         return data;

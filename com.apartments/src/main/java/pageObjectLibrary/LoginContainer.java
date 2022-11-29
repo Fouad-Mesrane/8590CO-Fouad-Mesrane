@@ -21,29 +21,29 @@ public class LoginContainer extends BasePage {
     @FindBy(css = "#username")
     WebElement username;
     @FindBy(css = "#password")
-    WebElement password;
+    WebElement passwordField;
     @FindBy(id = "loginButton")
     WebElement loginBtn;
 
 
-    public LandingPage authentication(){
+    public LandingPage authentication(String email, String password){
         waitForEleToBeVisible(loginContainer);
 
         switchToFrameByElement(formiFrame);
 
-        sendKeysToElement(username, TestDataReader.getTestData().getProperty("email"));
-        sendKeysToElement(password, TestDataReader.getTestData().getProperty("password"));
+        sendKeysToElement(username, email);
+        sendKeysToElement(passwordField, password);
         clickOnElement(loginBtn);
         return new LandingPage();
     }
 
-    public LandingPage errorLogin(){
+    public LandingPage errorLogin(String email, String password){
         waitForEleToBeVisible(loginContainer);
 
         switchToFrameByElement(formiFrame);
 
-        sendKeysToElement(username, GenerateData.email());
-        sendKeysToElement(password, GenerateData.password());
+        sendKeysToElement(username, email);
+        sendKeysToElement(passwordField, password);
         clickOnElement(loginBtn);
         return new LandingPage();
     }

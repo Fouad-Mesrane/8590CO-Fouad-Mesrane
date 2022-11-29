@@ -34,7 +34,7 @@ public class SignupPage extends BasePage {
     @FindBy(xpath = "//*[@id=\"createAccountModal\"]/div")
     WebElement passwordContainer;
     @FindBy(xpath = "//*[@id=\"newPw\"]")
-    WebElement password;
+    WebElement passwordField;
     @FindBy(xpath = "//*[@id='NewPasswordConfirm']")
     WebElement confirmPassword;
     String setPassword = GenerateData.password();
@@ -44,22 +44,25 @@ public class SignupPage extends BasePage {
 
 
 
-    public LandingPage createAcc(){
+    public void fillFirstNameLastNameEmail(String firstName, String lastName, String email){
         waitForEleToBeVisible(signupContainer);
-        sendKeysToElement(signupFirstName, GenerateData.firstName());
-        sendKeysToElement(signupLastName, GenerateData.lastName());
-        sendKeysToElement(signupEmail, GenerateData.email());
+        sendKeysToElement(signupFirstName, firstName);
+        sendKeysToElement(signupLastName, lastName);
+        sendKeysToElement(signupEmail, email);
 
         switchToFrameByElement(signupreCaptchaiFrame);
         jsClickOnElement(reCAPTCHACheckbox);
         // sometimes there is picture challenge problem
         switchToParentFrame();
         clickOnElement(signupBtn);
+
+    }
+    public LandingPage fillPasswordForm(String password){
         waitForEleToBeVisible(passwordContainer);
         webDriverWait.until(ExpectedConditions.visibilityOf( passwordiFrame));
         switchToFrameByElement(passwordiFrame);
-        sendKeysToElement( password,setPassword);
-        sendKeysToElement(confirmPassword,setPassword);
+        sendKeysToElement(passwordField,password);
+        sendKeysToElement(confirmPassword,password);
         safeClickOnElement(passwordBtn);
         switchToParentFrame();
 

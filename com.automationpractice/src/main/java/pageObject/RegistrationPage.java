@@ -29,16 +29,16 @@ public class RegistrationPage extends BasePage {
     WebElement LastNameElement;
 
     @FindBy(css = "#passwd")
-    WebElement password;
+    WebElement passwordField;
 
     @FindBy(css = "#days")
-    WebElement day;
+    WebElement dayText;
 
     @FindBy(css = "#months")
-    WebElement month;
+    WebElement monthText;
 
     @FindBy(css = "#years")
-    WebElement year;
+    WebElement yearText;
 
     @FindBy(css = "#address1")
     WebElement address;
@@ -63,44 +63,40 @@ public class RegistrationPage extends BasePage {
 
     private String firstNameText = GenerateData.firstName();
     private String lastNameText = GenerateData.lastName();
-    private String passwd = GenerateData.password();
-    private String streetAddress = GenerateData.streetAddress();
-    private String cityText = GenerateData.city();
-    private String stateText = GenerateData.state();
-    private String zipcodeText = GenerateData.zipCode();
-    private String mobileNum = GenerateData.mobilePhone();
 
 
 
-    public void fillRegistrationForm(){
+
+
+    public void fillRegistrationFormFirstPart(String firstName, String lastName, String password){
         clickOnElement(radioBtnMr);
-        sendKeysToElement(firstNameElement,firstNameText);
-        sendKeysToElement(LastNameElement,lastNameText);
-        sendKeysToElement(password, passwd);
-        dob();
-        fillAddressPart();
+        sendKeysToElement(firstNameElement,firstName);
+        sendKeysToElement(LastNameElement,lastName);
+        sendKeysToElement(passwordField, password);
+
+
 
     }
 
-    public void dob(){
-        selectFromDropdownByValue(day,"17");
-        selectFromDropdownByValue(month,"1");
-        selectFromDropdownByValue(year,"1995");
+    public void dob(String day, String month, String year){
+        selectFromDropdownByValue(dayText,day);
+        selectFromDropdownByValue(monthText,month);
+        selectFromDropdownByValue(yearText,year);
     }
 
     public void fillAddressPart(){
         sendKeysToElement(firstName,firstNameText);
         sendKeysToElement(lastName,lastNameText);
-        sendKeysToElement(address,streetAddress);
-        sendKeysToElement(city,cityText);
-        selectFromDropdownByVisibleText(state,stateText);
-        sendKeysToElement(zipCode, zipcodeText);
-        sendKeysToElement(mobile,mobileNum);
+        sendKeysToElement(address,GenerateData.streetAddress());
+        sendKeysToElement(city,GenerateData.city());
+        selectFromDropdownByVisibleText(state,GenerateData.state());
+        sendKeysToElement(zipCode, GenerateData.zipCode());
+        sendKeysToElement(mobile,GenerateData.mobilePhone());
         sendKeysToElement(addressAlias, GenerateData.streetAddress());
     }
 
     public LandingPage doRegistration(){
-        fillRegistrationForm();
+
         clickOnElement(submitAccount);
 
         return new LandingPage();

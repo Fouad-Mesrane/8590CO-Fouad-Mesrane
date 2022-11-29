@@ -46,7 +46,7 @@ public class RegistrationPage extends BasePage {
         sendKeysToElement(stateField,GenerateData.state());
         sendKeysToElement(zipCodeField,GenerateData.zipCode());
         sendKeysToElement(phoneNumberField,GenerateData.mobilePhone());
-        sendKeysToElement(ssnField, TestDataReader.readTestData().getProperty("ssn"));
+        sendKeysToElement(ssnField, TestDataReader.getTestData().getProperty("ssn"));
         sendKeysToElement(usernameField, username);
         sendKeysToElement(passwordField,password);
         sendKeysToElement(confirmPasswordField,password);

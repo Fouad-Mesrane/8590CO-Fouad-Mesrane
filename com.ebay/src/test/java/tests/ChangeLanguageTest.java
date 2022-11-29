@@ -9,5 +9,6 @@ public class ChangeLanguageTest extends BasePage {
     public  void validateLanguageChange(){
         HomePage homePage = new HomePage();
         homePage.changeLanguage();
+
     }
 }

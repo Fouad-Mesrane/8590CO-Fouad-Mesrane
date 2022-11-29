@@ -5,16 +5,19 @@ import org.testng.annotations.Test;
 import pageObjectModel.DashboardPage;
 import pageObjectModel.HomePage;
 import pageObjectModel.LoginPage;
+import tests.loginTests.AuthenticationTest;
 import utils.TestDataReader;
+
+import java.util.HashMap;
 
 public class LogoutTest extends BasePage {
 
 
-    @Test
-    public void logoutValidationTest(){
+    @Test(dataProvider = "getData", dataProviderClass = AuthenticationTest.class)
+    public void logoutValidationTest(HashMap<String,String> input){
         HomePage homePage = new HomePage();
         LoginPage loginPage = homePage.toLoginPage();
-        DashboardPage dashboard = loginPage.authentication(TestDataReader.getTestData().getProperty("email"),TestDataReader.getTestData().getProperty("password"));
+        DashboardPage dashboard = loginPage.authentication(input.get("email"), input.get("password"));
         dashboard.logout();
 
     }

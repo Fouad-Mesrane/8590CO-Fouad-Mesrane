@@ -7,14 +7,16 @@
     </listeners>
 
     <parameter name="browser" value="chrome"/>
+
     <parameter name="url" value="https://parabank.parasoft.com"/>
+
 
     <test name="tests">
         <classes>
-            <class name="test.AuthenticationTest"/>
-            <class name="test.RegistrationTest"/>
+            <!--<class name="test.AuthenticationTest"/>-->
+            <!--<class name="test.RegistrationTest"/>-->
             <class name="test.LogoutTest"/>
-            <class name="test.NewAccTest"/>
+            <!--<class name="test.NewAccTest"/>-->
         </classes>
     </test>
 
